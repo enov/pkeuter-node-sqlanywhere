@@ -55,7 +55,7 @@ void getErrorMsg( int code, std::string &str )
 
 v8::Local<v8::String> GetUtf8String(v8::Isolate *isolate, std::string msg) {
 	auto ret = String::NewFromUtf8(isolate, msg.c_str());
-#if NODE_MAJOR_VERSION == 14
+#if NODE_MAJOR_VERSION >= 14
 	return ret.ToLocalChecked();
 #else
 	return ret;
